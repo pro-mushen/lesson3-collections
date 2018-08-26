@@ -7,10 +7,12 @@ import java.util.TreeSet;
 
 
 public class MathBox {
-    private Set<Integer> collection;
+    private Set<Integer> collection = new TreeSet<Integer>();
 
     public MathBox(Integer[] array) {
-        collection = new TreeSet<>(Arrays.asList(array));
+        if (array != null) {
+            collection = new TreeSet<>(Arrays.asList(array));
+        }
     }
 
     public long summator() {
@@ -40,7 +42,7 @@ public class MathBox {
 
     }
 
-    public boolean remove(Integer e) {
+    public boolean deleteObject(Integer e) {
         return this.collection.remove(e);
     }
 
@@ -50,7 +52,7 @@ public class MathBox {
 
     @Override
     public String toString() {
-        return "collection = " + collection.toString();
+        return "collection: " + collection.toString();
     }
 
     @Override
@@ -63,7 +65,6 @@ public class MathBox {
         thatCollecion = thatMathBox.collection;
 
         if (this.collection == thatCollecion) return true;
-        if (thatCollecion == null) return false;
         if (this.collection.size() != thatCollecion.size()) return false;
 
         for (Integer e : this.collection) {

@@ -14,7 +14,7 @@ public class WorkWithArray {
         Random rnd = new Random();
 
         while (counter < countElements) {
-            if (set.add(rnd.nextInt(Integer.MAX_VALUE))) {
+            if (set.add(rnd.nextInt(Math.min(Integer.MAX_VALUE, countElements + 100)))) {
                 counter++;
             }
         }
