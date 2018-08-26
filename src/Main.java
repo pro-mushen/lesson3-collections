@@ -1,5 +1,5 @@
-import ru.innopolis.MathBox;
-import ru.innopolis.WorkWithArray;
+import ru.innopolis.task3.MathBox;
+import ru.innopolis.task3.WorkWithArray;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package ru.innopolis;
+package ru.innopolis.task3;
 
 import java.util.Arrays;
 import java.util.Objects;
