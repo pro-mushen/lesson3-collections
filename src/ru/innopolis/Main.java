@@ -6,6 +6,10 @@ import ru.innopolis.task4.ExtendsBox.MathBoxExtends;
 import ru.innopolis.task4.ObjectBox;
 import ru.innopolis.task4.myExceptions.ExceptionDivider;
 import ru.innopolis.task4.myExceptions.ExceptionNumeric;
+import ru.innopolis.task7.Box;
+import ru.innopolis.task7.BoxInvocationHandler;
+
+import java.lang.reflect.Proxy;
 
 public class Main {
 
@@ -78,6 +82,16 @@ public class Main {
         System.out.println("mathBoxExtends.equals(mathBoxExtends2) = " + mathBoxExtends.equals(mathBoxExtends2));
         System.out.println("mathBoxExtends.equals(mathBoxExtendsSame) = " + mathBoxExtends.equals(mathBoxExtendsSame));
 
+
+        BoxInvocationHandler boxInvocationHandler = new BoxInvocationHandler(mathBox);
+
+        Box proxyBox = (Box) Proxy.newProxyInstance(boxInvocationHandler.getClass().getClassLoader(), new Class[]{Box.class}, boxInvocationHandler);
+
+        System.out.println(proxyBox.getCollection());
+        proxyBox.splitter(0);
+        proxyBox.allClear();
+        System.out.println(proxyBox.getCollection());
+        System.out.println(mathBox.getCollection());
 
     }
 

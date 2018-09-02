@@ -1,13 +1,15 @@
 package ru.innopolis.task3;
 
+import ru.innopolis.task7.Box;
+
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
 
-public class MathBox {
-    private Set<Integer> collection = new TreeSet<Integer>();
+public class MathBox implements Box {
+    private Set<Integer> collection = new TreeSet<>();
 
     public MathBox(Integer[] array) {
         if (array != null) {
@@ -23,6 +25,19 @@ public class MathBox {
         }
 
         return result;
+    }
+
+    public Set<Integer> getCollection() {
+        return collection;
+    }
+
+    public void setCollection(Set<Integer> collection) {
+        this.collection = collection;
+    }
+
+    @Override
+    public void allClear() {
+        System.out.println("Очистил коллекцию");
     }
 
     // деление округляю, так как я так понял возвращаемая коллекция должна быть индентична исходной, т.е. Integer
